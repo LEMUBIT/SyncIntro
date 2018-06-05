@@ -40,6 +40,7 @@ import io.realm.SyncUser;
 import io.realm.todo.model.Item;
 import io.realm.todo.ui.ItemsRecyclerAdapter;
 //todo Stopped at ---Step 2 (Part 2) - Adding Query-based sync
+//todo current branch is realmPartialSync so continue from there
 public class ItemsActivity extends AppCompatActivity {
 
 
@@ -70,9 +71,7 @@ public class ItemsActivity extends AppCompatActivity {
                         Item item = new Item();
                         item.setBody(taskText.getText().toString());
                         //todo insert data into realm
-                        realm.executeTransactionAsync(realm -> {
-                            realm.insert(item);
-                        });
+                        realm.executeTransactionAsync(realm -> realm.insert(item));
                     })
                     .setNegativeButton("Cancel", null)
                     .create()
