@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android' //todo (2) add realm-android
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "io.realm.todo"
+        minSdkVersion 22
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    realm {
+        syncEnabled = true // todo (3) Add the following plugin configuration to enable the sync APIs
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'io.realm:android-adapters:3.0.0' //todo (4) We're going to use Realm Android Adapter to build the list of tasks, we need to add it's dependency.
+    implementation 'com.android.support:design:26.1.0'
+}
